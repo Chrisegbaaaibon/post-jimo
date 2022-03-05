@@ -45,10 +45,31 @@ exports.projects = (req, res)=>{
 
 // To update project
 exports.updateProject = (req, res, next)=>{
-   
+   project.findByIdAndUpdate(req.params._id, req.body, (err, project)=>{
+      if(err){
+         res.status(500).json({
+            message: "Error while trying to update project "
+         });
+      }else{
+         res.json({
+            message: "Project updated Successfully!",
+            data: project
+         });
+      };
+   } );
 };
 
 // To delete project
 exports.deleteProject = (req, res, next)=>{
-
+   project.findByIdAndDelete(req.params._id, (err, del)=>{
+      if(err){
+         res.status(500).json({
+            message: "Error occured while trying to remove the project!"
+         });
+      }else{
+         res.json({
+            message: "Project removed successfully"
+         })
+      }
+   })
 }

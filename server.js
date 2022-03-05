@@ -9,7 +9,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(routes);
+app.use('/api',  routes);
+
 
 
 
@@ -20,5 +21,7 @@ app.get('/', (req, res)=>{
 
 app.listen(process.env.PORT, ()=>{
    db();
-   console.log("running on port 4700");
+   // console.log("running on port 4700");
 })
+
+module.exports = app;
