@@ -5,7 +5,8 @@ const schema = mongoose.Schema;
 const project = new schema({
    overView:{
       type: String,
-      min: (30),
+      unique: true,
+      min: (10),
       max: (100),
    },
    overViewFile:{ //video
