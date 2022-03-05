@@ -21,7 +21,7 @@ app.get('/', (req, res)=>{
 
 app.listen(process.env.PORT, ()=>{
    db();
-   // console.log("running on port 4700");
+   console.log("running on port 4700");
 })
 
 module.exports = app;
