@@ -1,8 +1,10 @@
 const routes = require('express').Router()
-const { addProject, updateProject, projects, deleteProject } = require('../handler/controller')
+const { addProject, updateProject, projects, deleteProject, addProjectFile } = require('../handler/controller')
+const upload = require('../upload/multer');
 
 
-routes.post('/add', addProject);
+routes.post('/add', addProject, upload.array('image'), addProjectFile)
+
 
 routes.get('/projects', projects);
 
